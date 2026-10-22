@@ -1,7 +1,7 @@
 # S04-Code-Smells
 
 Code Smells:
-1. Insider Trading
+1. Insider Trading(Kenneth Tran)
 2. Duplicated Code (Andy Zheng)
 3. Large Class (Devin Conley)
 
