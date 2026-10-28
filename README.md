@@ -177,5 +177,3 @@ class GameManager {
   }
 }
 ```
-
-There is a temporary markdown file for each smell so we can work without risking merge conflicts.
