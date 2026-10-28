@@ -13,7 +13,8 @@ what that thing does.
 
 ### How does it arise?
 The most common reason why:
-**I'm too lazy** or **I'll do it later**
+**I'm too lazy** or **I'll do it later** -> Putting naming the thing off for later commonly becomes forgotten. This can scale up very fast
+to the point where a developer could be asking themselfs "what did this do again?" when trying to revisit or change their old code.
 
 ## B. Prevention and Refactoring
 
@@ -30,17 +31,17 @@ The best way to refactor is to simply just replace the mysterious names with des
 
 #### Before
 ```
-    
         def up(c, n):
             a = n * 1.15
             if c >= a:
             return c - a
         return c
 ```
+#### What's wrong
+- **What does up, c, n, a mean?:** Simple naming variables like this can become confusing very fast especially when a devloper needs to back track or revisit old code.
 
 #### After
 ```     
-    Refactored:
         def purchase_cookie_upgrade(current_cookies, base_upgrade_cost):
 
             scaled_upgrade_cost = base_upgrade_cost * 1.15
@@ -55,16 +56,16 @@ The best way to refactor is to simply just replace the mysterious names with des
 
 #### Before
 ```
-    C++:
         int c(int d){
             int v = d * 24;
             return v;
         }
 ``` 
+#### What's wrong
+- **What does c, d, v do mean?:** Once again we don't know what this section of code does. For all we know it could be completely unrelated to the program.
 
 #### After
 ``` 
-    refactored:
         int convertDaysToHours(int days){
             int totalHours = days * 24;
             return totalHours;
