@@ -47,7 +47,7 @@ Examples:
 
 2. Duplicated Code (Andy Zheng)
 
-# 3. Large Class <small>Devin Conley</small>
+# 3. Large Class <sub>Devin Conley</sub>
 ## A. Introduction
 
 ### What is the smell?
