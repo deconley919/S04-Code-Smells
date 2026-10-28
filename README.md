@@ -280,7 +280,7 @@ class Health {
   get isDead() { return this.hp === 0; }
 }
 
- class Position {
+class Position {
   constructor(public x = 0, public y = 0) {}
   move(dx: number, dy: number) { this.x += dx; this.y += dy; }
 }
