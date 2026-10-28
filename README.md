@@ -90,6 +90,7 @@ A large class becomes a problem when it is difficult to make required changes.
 ### Fixing the problem
 
 | Approach | When to use |
+|---|---|
 | **Extract Class** | If a subset of fields and methods are part of a similar concept (everything about the player), then move them into a new class |
 | **Extract Superclass** | If two classes share a behavior, then move the shared part into a common parent the others can inherit |
 | **Replace Type Code with Subclasses** | If you have a coded type that affects program behavior, then create a subclass for each type |
