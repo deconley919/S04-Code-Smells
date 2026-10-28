@@ -62,7 +62,7 @@ It usually has:
 
 It grows over time:
 
-- **""Just one more feature"** -> it's always easier to add a method to an existing class than it is to create a new one.
+- **"Just one more feature"** -> it's always easier to add a method to an existing class than it is to create a new one.
 - **Convenience** -> once a class stores `this.player` or `this.score` for example, every new feature wants access so they are added there.
 - **Deadlines** -> sometimes a deadline is coming up and trying to split up a class might take more time 
 
