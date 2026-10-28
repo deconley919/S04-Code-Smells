@@ -285,7 +285,6 @@ class Health {
   move(dx: number, dy: number) { this.x += dx; this.y += dy; }
 }
 
-
 class Enemy {
   health = new Health(50, 50);
   constructor(public name: string) {}
