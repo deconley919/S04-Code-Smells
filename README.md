@@ -1,7 +1,7 @@
 # S04-Code-Smells
 
 Code Smells:
-# 1. Mysterious Name(Kenneth Tran)
+# 1. Mysterious Name (Kenneth Tran)
 
 ## A. Introduction:
 
