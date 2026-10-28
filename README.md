@@ -30,7 +30,7 @@ The best way to refactor is to simply just replace the mysterious names with des
 ### Python Example
 
 #### Before
-```
+```python
         def up(c, n):
             a = n * 1.15
             if c >= a:
@@ -41,7 +41,7 @@ The best way to refactor is to simply just replace the mysterious names with des
 - **What does up, c, n, a mean?:** Simple naming variables like this can become confusing very fast especially when a devloper needs to back track or revisit old code.
 
 #### After
-```     
+```python     
         def purchase_cookie_upgrade(current_cookies, base_upgrade_cost):
 
             scaled_upgrade_cost = base_upgrade_cost * 1.15
@@ -55,7 +55,7 @@ The best way to refactor is to simply just replace the mysterious names with des
 ### C++ Example
 
 #### Before
-```
+```cpp
         int c(int d){
             int v = d * 24;
             return v;
@@ -65,7 +65,7 @@ The best way to refactor is to simply just replace the mysterious names with des
 - **What does c, d, v do mean?:** Once again we don't know what this section of code does. For all we know it could be completely unrelated to the program.
 
 #### After
-``` 
+```cpp
         int convertDaysToHours(int days){
             int totalHours = days * 24;
             return totalHours;
@@ -107,7 +107,7 @@ One of the methods you would want to use in refactoring would be to extract func
 ### JavaScript Example
 
 #### Before
-```
+```js
         function playerAttack(attack, defense) {
           let damage = attack - defense;
           if (damage < 0) damage = 0;
@@ -126,7 +126,7 @@ One of the methods you would want to use in refactoring would be to extract func
 - **Two Functions, Exact Same Code:** Both functions, as you can easily see has the exact same code where it calculates damage where it takes defense from attack. This could go wrong easily as when you have say 6 enemies for attack calculations and you just discovered that you messed up in one part of the code. Because the code is the exact same, you now need to fix it every time.
 
 #### After
-```
+```js
         function calculateAttack(attack, defense) {
           let damage = attack - defense;
           if (damage < 0) damage = 0;
@@ -138,7 +138,7 @@ One of the methods you would want to use in refactoring would be to extract func
 ### Python Example
 
 #### Before
-```
+```py
         def register_user(username):
             if len(username) < 3:
               print("Username too short")
@@ -156,7 +156,7 @@ One of the methods you would want to use in refactoring would be to extract func
 - **Same Code in Functions, Two Functionalities** Both functions uses the exact same code, but one uses it to register for a user, while the other updates their username to the new username.
 
 #### After
-```
+```py
         def validate_username(username):
           if len(username) < 3:
               print("Username too short")
@@ -226,7 +226,7 @@ A large class becomes a problem when it is difficult to make required changes.
 
 #### Before
 
-```
+```ts
 class GameManager {
   playerHp = 100;
   playerMaxHp = 100;
@@ -273,7 +273,7 @@ class GameManager {
 
 #### After
 
-```
+```ts
 class Health {
   constructor(public hp = 100, public max = 100) {}
   damage(amount: number) { this.hp = Math.max(0, this.hp - amount); }
