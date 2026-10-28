@@ -44,7 +44,9 @@ Examples:
             return totalHours;
         }
 ------------------------------------------------------------
+
 2. Duplicated Code (Andy Zheng)
+
 # 3. Large Class (Devin Conley)
 ## A. Introduction
 
