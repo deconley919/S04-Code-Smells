@@ -53,7 +53,7 @@ Examples:
 
 ### What is the smell?
 
-A **Large Class** is a bloater class which tries to do too much and signal poor distribution of responsibilites which makes code harder to read. 
+A **Large Class** is a bloater class which tries to do too much and signals poor distribution of responsibilities which makes code harder to read. 
 
 It usually has:
 
@@ -73,7 +73,7 @@ It grows over time:
 
 A large class becomes a problem when it is difficult to make required changes.
 
-- **Hard to understand** -> once you have a large class, it is easy to forget it's parts and you need to take time to read through the long section of code each time
+- **Hard to understand** -> once you have a large class, it is easy to forget its parts and you need to take time to read through the long section of code each time
 - **Hard to safely edit** -> things can be tangled with unrelated features sharing fields, so changing one can break another
 - **Duplication** -> logic gets trapped inside the large class, so code that needs it elsewhere tends to duplicate it 
 - **Difficult to test** -> if a class is large enough, it becomes difficult to isolate and test things such as scoring rules 
@@ -85,7 +85,7 @@ A large class becomes a problem when it is difficult to make required changes.
 | Practice | How it helps |
 |---|---|
 | **Limit responsibilities**| Ask whether a method or field belongs in a class to do a specific and focused job. Helps prevent overly bloating classes as you expand your code |
-|**Watch field prefixes**| Frequent use of prefixes such as `enemyX`, `enemySpeed`, `enemyHP` indicate a class avaiable to extract |
+|**Watch field prefixes**| Frequent use of prefixes such as `enemyX`, `enemySpeed`, `enemyHP` indicate a class available to extract |
 |**Small and frequent refactors**| Taking the time to review and refactor in parts along the way keep your code clean and readable while also avoiding a massive headache later |
 
 ### Fixing the problem
@@ -134,6 +134,9 @@ class GameManager {
   playSfx(name: string) {
     new Audio(`sfx/${name}.wav`).volume = this.sfxVolume;
   }
+
+  gameOver() {
+  }
 }
 ```
 
@@ -150,6 +153,17 @@ class Health {
   constructor(public hp = 100, public max = 100) {}
   damage(amount: number) { this.hp = Math.max(0, this.hp - amount); }
   get isDead() { return this.hp === 0; }
+}
+
+ class Position {
+  constructor(public x = 0, public y = 0) {}
+  move(dx: number, dy: number) { this.x += dx; this.y += dy; }
+}
+
+
+class Enemy {
+  health = new Health(50, 50);
+  constructor(public name: string) {}
 }
 
 class ScoreKeeper {
@@ -171,13 +185,27 @@ class AudioPlayer {
 
 class GameManager {
   playerHealth = new Health();
+  playerPos = new Position();
   score = new ScoreKeeper();
   audio = new AudioPlayer();
+  enemies: Enemy[] = [new Enemy("slime"), new Enemy("bat")];
 
   damagePlayer(amount: number) {
     this.playerHealth.damage(amount);
     this.audio.sfx("hurt");
     if (this.playerHealth.isDead) this.gameOver();
   }
+
+  damageEnemy(enemy: Enemy, amount: number) {
+    enemy.health.damage(amount);
+    this.audio.sfx("hit");
+    if (enemy.health.isDead) {
+      this.score.add(10);
+      this.enemies = this.enemies.filter(e => e !== enemy);
+    }
+  }
+}
+
+gameOver() {
 }
 ```
