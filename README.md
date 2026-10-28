@@ -329,6 +329,10 @@ class GameManager {
       this.enemies = this.enemies.filter(e => e !== enemy);
     }
   }
+
+  movePlayer(dx: number, dy: number) {
+    this.playerPos.move(dx, dy);
+  }
 }
 
 gameOver() {
